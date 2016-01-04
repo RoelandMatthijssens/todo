@@ -23,8 +23,9 @@ class TasksController < ApplicationController
 
 	def create
 		@task = Task.new(task_params)
+		@task.creator = current_user
 		@task.save
-		respond_with(@task)
+		redirect_to action: "index"
 	end
 
 	def update
@@ -43,6 +44,6 @@ class TasksController < ApplicationController
 		end
 
 		def task_params
-			params.require(:task).permit(:name, :description, :finished_on)
+			params.require(:task).permit(:name, :description, :finished_on, :assignee_id)
 		end
 end
