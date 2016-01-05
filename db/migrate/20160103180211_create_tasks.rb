@@ -3,7 +3,7 @@ class CreateTasks < ActiveRecord::Migration
 		create_table :tasks do |t|
 			t.string :name
 			t.string :description
-			t.timestamp :finished_on
+			t.datetime :finished_on
 			t.integer :value
 			t.integer :creator_id
 			t.integer :assignee_id
