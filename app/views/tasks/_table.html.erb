@@ -15,8 +15,8 @@
 			<tr>
 				<td><%= task.finished? ? link_to('v', unmark_task_path(task), method: :post) : link_to('x', mark_task_path(task), method: :post) %></td>
 				<td><%= task.name %></td>
-				<td><%= task.creator ? task.creator.email : "" %></td>
-				<td><%= task.assignee ? task.assignee.email : "" %></td>
+				<td><%= task.creator ? task.creator.username : "" %></td>
+				<td><%= task.assignee ? task.assignee.username : "" %></td>
 				<td><%= task.description %></td>
 				<td><%= link_to 'Edit', edit_task_path(task) %></td>
 				<td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
