@@ -23,10 +23,6 @@
 		<%= f.label :assignee %><br>
 		<%= collection_select :task, :assignee_id, User.all, :id, :email %>
 	</div>
-	<div class="field">
-		<%= f.label :finished_on %><br>
-		<%= f.date_select :finished_on %>
-	</div>
 	<div class="actions">
 		<%= f.submit %>
 	</div>

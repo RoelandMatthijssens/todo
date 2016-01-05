@@ -6,7 +6,8 @@ class TasksController < ApplicationController
 
 	def index
 		@tasks = Task.all
-		respond_with(@tasks)
+		@myTasks = current_user.assigned_tasks
+		@myCreatedTasks = current_user.tasks
 	end
 
 	def show
