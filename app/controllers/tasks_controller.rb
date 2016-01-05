@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_task, only: [:show, :edit, :update, :destroy]
+	before_action :set_task, only: [:show, :edit, :update, :destroy, :mark, :unmark]
 
 	respond_to :html
 
@@ -37,6 +37,18 @@ class TasksController < ApplicationController
 	def destroy
 		@task.destroy
 		respond_with(@task)
+	end
+
+	def mark
+		@task.finished_on = DateTime.now
+		@task.save!
+		redirect_to action: "index"
+	end
+
+	def unmark
+		@task.finished_on = nil
+		@task.save!
+		redirect_to action: "index"
 	end
 
 	private

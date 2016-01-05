@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 	resources :rewards
 
-	resources :tasks
+	resources :tasks do
+		post 'mark', on: :member
+		post 'unmark', on: :member
+	end
 
 	devise_for :users
 	devise_scope :user do
