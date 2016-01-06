@@ -31,7 +31,7 @@ class TasksController < ApplicationController
 
 	def update
 		@task.update(task_params)
-		respond_with(@task)
+		redirect_to action: "index"
 	end
 
 	def destroy
@@ -57,6 +57,6 @@ class TasksController < ApplicationController
 		end
 
 		def task_params
-			params.require(:task).permit(:name, :description, :finished_on, :assignee_id)
+			params.require(:task).permit(:name, :description, :finished_on, :assignee_id, :reward)
 		end
 end
