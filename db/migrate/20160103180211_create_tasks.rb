@@ -4,7 +4,7 @@ class CreateTasks < ActiveRecord::Migration
 			t.string :name
 			t.string :description
 			t.datetime :finished_on
-			t.integer :value
+			t.integer :reward
 			t.integer :creator_id
 			t.integer :assignee_id
 

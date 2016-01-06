@@ -23,6 +23,10 @@
 		<%= f.label :assignee %><br>
 		<%= collection_select :task, :assignee_id, User.all, :id, :email %>
 	</div>
+	<div class="field">
+		<%= f.label :reward %><br>
+		<%= f.number_field :reward %>
+	</div>
 	<div class="actions">
 		<%= f.submit %>
 	</div>
