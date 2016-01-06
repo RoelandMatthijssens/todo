@@ -5,19 +5,38 @@
 			<th>Reward</th>
 			<th>Name</th>
 			<th>Description</th>
-			<th colspan="2"></th>
+			<th></th>
+			<th></th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% tasks.each do |task| %>
 			<tr>
-				<td><%= task.finished? ? link_to('v', unmark_task_path(task), method: :post) : link_to('x', mark_task_path(task), method: :post) %></td>
-				<td><%= task.reward %></td>
+				<td class="button_column">
+					<% if task.finished? %>
+						<%= link_to unmark_task_path(task), method: :post, class: "btn btn-success" do %>
+							<i class="glyphicon glyphicon-check" aria-hidden="true"></i>
+						<% end %>
+					<% else %>
+						<%= link_to mark_task_path(task), method: :post, class: "btn btn-default" do %>
+							<i class="glyphicon glyphicon-unchecked" aria-hidden="true"></i>
+						<% end %>
+					<% end %>
+				</td>
+				<td class="button_column"><%= task.reward %></td>
 				<td><%= task.name %></td>
 				<td><%= task.description %></td>
-				<td><%= link_to 'Edit', edit_task_path(task) %></td>
-				<td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td class="button_column">
+					<%= link_to edit_task_path(task), class: "btn btn-default" do %>
+						<i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+					<% end %>
+				</td>
+				<td class="button_column">
+					<%= link_to task, method: :delete, class: "btn btn-danger" do %>
+						<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+					<% end %>
+				</td>
 			</tr>
 		<% end %>
 	</tbody>
