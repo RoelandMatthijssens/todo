@@ -21,7 +21,7 @@
 	</div>
 	<div class="field">
 		<%= f.label :assignee %><br>
-		<%= collection_select :task, :assignee_id, User.all, :id, :email %>
+		<%= collection_select :task, :assignee_id, User.all, :id, :username %>
 	</div>
 	<div class="field">
 		<%= f.label :reward %><br>
