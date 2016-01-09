@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
 	before_action :authenticate_user!
 	before_action :set_task, only: [:show, :edit, :update, :destroy, :mark, :unmark]
+	before_action :authorize, only: [:edit, :update, :destroy]
 
 	respond_to :html
 
@@ -58,5 +59,11 @@ class TasksController < ApplicationController
 
 		def task_params
 			params.require(:task).permit(:name, :description, :finished_on, :assignee_id, :reward)
+		end
+
+		def authorize
+			if current_user != @task.creator
+				redirect_to action: "index"
+			end
 		end
 end

@@ -1,6 +1,6 @@
 <h3>Assigned to me</h3>
 <%= render partial: 'table', locals: {tasks: @myTasks} %>
 <h3>My tasks</h3>
-<%= render partial: 'table', locals: {tasks: @myCreatedTasks} %>
+<%= render partial: 'table', locals: {tasks: @myCreatedTasks, render_buttons: true} %>
 <br>
 <%= link_to 'New Task', new_task_path %>
