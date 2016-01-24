@@ -31,6 +31,14 @@ group :development, :test do
 	gem 'rspec-rails'
 end
 
+group :ci do
+	gem 'rspec-rails'
+	gem 'simplecov'
+	gem 'simplecov-rcov'
+	gem 'ci_reporter'
+	gem 'ci_reporter_rspec'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
